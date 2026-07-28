@@ -1,0 +1,49 @@
+{
+  "entities": {
+    "Project": {
+      "title": "Project",
+      "description": "A cinematic AI movie project created in CineAI CreatorOS",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique project identifier" },
+        "userId": { "type": "string", "description": "User ID of project owner" },
+        "title": { "type": "string", "maxLength": 200 },
+        "logline": { "type": "string", "maxLength": 2000 },
+        "genre": { "type": "string", "maxLength": 100 },
+        "targetAudience": { "type": "string", "maxLength": 200 },
+        "visualStyle": { "type": "string", "maxLength": 200 },
+        "episodeLength": { "type": "string", "maxLength": 100 },
+        "status": { "type": "string", "enum": ["draft", "generating", "completed", "failed"] },
+        "output": { "type": "object" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "title"]
+    },
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile and preferences in CineAI CreatorOS",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "displayName": { "type": "string", "maxLength": 100 },
+        "email": { "type": "string", "maxLength": 200 },
+        "photoURL": { "type": "string", "maxLength": 500 },
+        "role": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["userId", "email"]
+    }
+  },
+  "firestore": {
+    "/projects/{projectId}": {
+      "schema": { "$ref": "#/entities/Project" },
+      "description": "Collection of movie projects"
+    },
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "Collection of user profiles"
+    }
+  }
+}

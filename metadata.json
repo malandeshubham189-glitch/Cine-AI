@@ -1,0 +1,6 @@
+{
+  "name": "CineAI CreatorOS",
+  "description": "Enterprise AI SaaS Operating System for filmmakers, showrunners, screenwriters, and virtual production studios.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
